@@ -5,15 +5,15 @@ const loginFormHandler = async (event) => {
 
   // TODO: Add a comment describing the functionality of these expressions
   // removes spaces to the right and left of the input
-  const email = document.querySelector('#email-login').value.trim();
+  const username = document.querySelector('#username-login').value.trim();
   const password = document.querySelector('#password-login').value.trim();
 
-  if (email && password) {
+  if (username && password) {
     // TODO: Add a comment describing the functionality of this expression
     // if it contains email and password, then PSOT
     const response = await fetch('/api/users/login', {
       method: 'POST',
-      body: JSON.stringify({ email, password }),
+      body: JSON.stringify({ username , password }),
       headers: { 'Content-Type': 'application/json' },
     });
     // if response ok replace with homepage, if not alert failed to login

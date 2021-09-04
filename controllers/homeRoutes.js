@@ -4,11 +4,13 @@ const withAuth = require('../utils/auth');
 
 // TODO: Add a comment describing the functionality of the withAuth middleware
 // If your status is not logged in then you are redirected to login page
-router.get('/', withAuth, async (req, res) => {
+router.get('/', 
+  //withAuth, 
+  async (req, res) => {
   try {
     const userData = await User.findAll({
       attributes: { exclude: ['password'] },
-      order: [['name', 'ASC']],
+      order: [['username', 'ASC']],
     });
 
     const users = userData.map((project) => project.get({ plain: true }));
@@ -33,6 +35,17 @@ router.get('/login', (req, res) => {
   }
 
   res.render('login');
+});
+
+router.get('/signup', (req, res) => {
+  // TODO: Add a comment describing the functionality of this if statement
+  // If logged in, you get the homepage. If not, redirects to login. 
+  if (req.session.logged_in) {
+    res.redirect('/');
+    return;
+  }
+
+  res.render('signup');
 });
 
 module.exports = router;

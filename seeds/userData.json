@@ -1,27 +1,27 @@
 [
   {
-    "name": "Sal",
-    "email": "sal@hotmail.com",
-    "password": "password12345"
+    "user_id": 1,
+    "title": "Test Title 1",
+    "content": "Test Content 1"
   },
   {
-    "name": "Lernantino",
-    "email": "lernantino@gmail.com",
-    "password": "password12345"
+    "user_id": 1,
+    "title": "Test Title 2",
+    "content": "Test Content 2"
   },
   {
-    "name": "Amiko",
-    "email": "amiko2k20@aol.com",
-    "password": "password12345"
+    "user_id": 2,
+    "title": "Test Title 3",
+    "content": "Test Content 3"
   },
   {
-    "name": "Jordan",
-    "email": "jordan99@msn.com",
-    "password": "password12345"
+    "user_id": 2,
+    "title": "Test Title 4",
+    "content": "Test Content 4"
   },
   {
-    "name": "Blake",
-    "email": "the_blake@yahoo.com",
-    "password": "password12345"
+    "user_id": 3,
+    "title": "Test Title 5",
+    "content": "Test Content 5"
   }
 ]
