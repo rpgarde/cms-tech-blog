@@ -37,6 +37,12 @@ If you want to run this locally on your machine:
 
 ## Usage
 See walkthrough video [here](https://drive.google.com/file/d/1Q27XAjGjhfmWaiygU-tDQv3-RtCjfPsn/view) and deployed app [here](https://protected-tor-62513.herokuapp.com/)
+
+Notes on usage:
+* If you are logged out, you're able to view posts and comments
+* If you are logged in, you're able to view posts, and inside the post, add / edit / delete comments
+* If you are logged in, you're able to create/edit/delete posts via the Dashboard section
+
 Use test user if you want to login, otherwise just sign up and create your own account. 
 * username: testuser
 * password: password12345
