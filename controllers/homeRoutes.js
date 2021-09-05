@@ -50,7 +50,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
 });
 
 //Route for individual posts to see comments (withAuth)
-router.get('/post/:id', withAuth, async (req, res) => {
+router.get('/post/:id', async (req, res) => {
   try {
     const postData = await Post.findByPk(req.params.id,{
       include:[ {model:User},{model:Comment}],
