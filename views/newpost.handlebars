@@ -1,24 +1,15 @@
-<div class="card" id = "post" data-postid = "{{post.id}}">
-  <h5 class="card-header">{{post.title}}</h5>
-  <div class="card-body">
-    <p class="card-title">Posted by {{post.user.username}} on {{post.createdAt}}</p>
-    <p class="card-text">{{post.content}}</p>
-  </div>
-</div>
-<hr>
-<h5>Comments</h5>
-{{#each post.comments as |comment|}}
-{{>comment-details}}
-{{/each}}
-  {{#if logged_in}}
-<form id = "comment-form">
+<form id="post-form">
   <div class="mb-3">
-    <label for="comment" class="form-label">Leave a comment</label>
-    <textarea class="form-control" id="comment" rows="3"></textarea>
+    <label for="title" class="form-label">Title</label>
+    <input type="text" class="form-control" id="title" placeholder="Add your title">
   </div>
 
-  <button type="submit" class="btn btn-primary">Add a comment</button>
-</form>
-  {{/if}}
+  <div class="mb-3">
+    <label for="content" class="form-label">Post content</label>
+    <textarea class="form-control" id="content" rows="3" placeholder="Add your content"></textarea>
+  </div>
 
-<script src="/js/posts.js"></script>
+  <button type="submit" class="btn btn-primary">Create a post</button>
+</form>
+
+<script src="/js/newpost.js"></script>

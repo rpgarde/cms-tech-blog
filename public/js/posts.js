@@ -6,7 +6,7 @@ const commentFormHandler = async (event) => {
   if (content) {
     const response = await fetch('/api/posts/comment', {
       method: 'POST',
-      body: JSON.stringify({ content , post_id }),
+      body: JSON.stringify({ content, post_id }),
       headers: { 'Content-Type': 'application/json' },
     });
 
@@ -22,3 +22,4 @@ const commentFormHandler = async (event) => {
 document
   .querySelector('#comment-form')
   .addEventListener('submit', commentFormHandler);
+
