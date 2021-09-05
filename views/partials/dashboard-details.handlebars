@@ -1,8 +1,10 @@
 <div class="card my-2" data-postid="{{id}}">
   <h5 class="card-header">{{title}}</h5>
   <div class="card-body">
-    <p class="card-title text-secondary fw-light fst-italic">Posted on {{format_date createdAt}} {{format_time createdAt}}</p>
-    <a href="/post/edit/{{id}}" ><button type="submit" class="btn btn-primary" id="editBtn">Edit post</button></a>
+    <p class="card-title text-secondary fw-light fst-italic">Posted on {{format_date createdAt}} {{format_time
+      createdAt}}</p>
+    <a href="/post/{{id}}"><button type="submit" class="btn btn-primary" id="editBtn">See comments</button></a>
+    <a href="/post/edit/{{id}}"><button type="submit" class="btn btn-primary" id="editBtn">Edit post</button></a>
     <button type="submit" class="btn btn-danger" id="deleteBtn" data-postid="{{id}}">Delete post</button>
   </div>
 </div>

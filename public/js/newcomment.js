@@ -11,7 +11,7 @@ const commentFormHandler = async (event) => {
     });
 
     if (response.ok) {
-      console.log(response)
+      alert('Comment successfully added');
       document.location.reload();
     } else {
       alert('That did not work, please try again');
