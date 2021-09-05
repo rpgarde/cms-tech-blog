@@ -6,7 +6,7 @@ This is a full-stack tech blog which allows you to read, create, edit, and delet
 
 See deployed app [here](https://protected-tor-62513.herokuapp.com/) and video walkthrough [here](https://drive.google.com/file/d/1Q27XAjGjhfmWaiygU-tDQv3-RtCjfPsn/view).
 
-![screenshot](./assets/home-screenshot.png)
+![screenshot](./Assets/home-screenshot.png)
 
 ## Table of Contents 
 * [Technology](#technology)
