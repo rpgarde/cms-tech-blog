@@ -1,10 +1,11 @@
-# cms-tech-blog
+# CMS Tech Blog
 ![license](https://img.shields.io/github/license/rpgarde/ecommerce-backend)
 
 ## Description
 This is a full-stack tech blog which allows you to read, create, edit, and delete blog posts and comments. This also contains user authentication, allowing for signup / login. 
 
-See deployed app [here](deployed app).
+See deployed app [here](https://protected-tor-62513.herokuapp.com/) and video walkthrough [here](https://drive.google.com/file/d/1Q27XAjGjhfmWaiygU-tDQv3-RtCjfPsn/view).
+
 ![screenshot](./assets/home-screenshot.png)
 
 ## Table of Contents 
@@ -35,7 +36,10 @@ If you want to run this locally on your machine:
 * Go to http://localhost:3001/ to use the application
 
 ## Usage
-See walkthrough video here. 
+See walkthrough video [here](https://drive.google.com/file/d/1Q27XAjGjhfmWaiygU-tDQv3-RtCjfPsn/view) and deployed app [here](https://protected-tor-62513.herokuapp.com/)
+Use test user if you want to login, otherwise just sign up and create your own account. 
+* username: testuser
+* password: password12345
 
 ## License
 This project uses MIT license.
