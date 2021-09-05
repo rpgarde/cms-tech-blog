@@ -31,21 +31,28 @@ router.get('/dashboard', withAuth, async (req, res) => {
   try {
     const postData = await Post.findAll({
       include: [{ model: User }],
-      // attributes: { exclude: ['password'] },
+      attributes: { exclude: ['password'] },
       order: [['createdAt', 'DESC']],
       where: {
         user_id: req.session.user_id,
       }
     });
+    if(postData.length>0){
     const posts = postData.map((post) => post.get({ plain: true }));
     console.log(posts)
     res.render('dashboard', {
       posts,
-      // TODO: Add a comment describing the functionality of this property
-      // checks if session is logged in
       logged_in: req.session.logged_in,
       current_user: req.session.user_id
     });
+  }
+  else{
+    console.log('here is the dashboard')
+    res.render('dashboard',{
+      logged_in: req.session.logged_in,
+      current_user: req.session.user_id
+    })
+  }
   } catch (err) {
     res.status(500).json(err);
   }

@@ -1,18 +1,18 @@
 
-const postFormHandler = async (event) => {
+const editPostFormHandler = async (event) => {
   event.preventDefault();
-  console.log('we are posting')
+  const post_id = document.querySelector('#post-form').dataset.postid
   const title = document.querySelector('#title').value.trim();
   const content = document.querySelector('#content').value.trim();
   if (content) {
-    const response = await fetch('/api/posts', {
-      method: 'POST',
-      body: JSON.stringify({ title, content }),
+    const response = await fetch(`/api/posts/edit/${post_id}`, {
+      method: 'PUT',
+      body: JSON.stringify({ post_id, title, content }),
       headers: { 'Content-Type': 'application/json' },
     });
 
     if (response.ok) {
-      alert('Post successful. Redirecting you to the dashboard.')
+      alert('Edit successful. Redirecting you to the dashboard.')
       document.location.replace('/dashboard');
     } else {
       alert('That did not work, please try again');
@@ -22,4 +22,4 @@ const postFormHandler = async (event) => {
 
 document
 .querySelector('#post-form')
-.addEventListener('submit', postFormHandler);
+.addEventListener('submit', editPostFormHandler);

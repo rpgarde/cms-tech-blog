@@ -1,7 +1,7 @@
 <div class="card" id="post" data-postid="{{post.id}}">
   <h5 class="card-header">{{post.title}}</h5>
   <div class="card-body">
-    <p class="card-title">Posted by {{post.user.username}} on {{format_date post.createdAt}} {{format_time post.createdAt}}</p>
+    <p class="card-title text-secondary fw-light fst-italic">Posted by {{post.user.username}} on {{format_date post.createdAt}} {{format_time post.createdAt}}</p>
     <p class="card-text">{{post.content}}</p>
   </div>
 </div>
@@ -19,6 +19,6 @@
 
   <button type="submit" class="btn btn-primary">Add a comment</button>
 </form>
+<script src="/js/posts.js"></script>
 {{/if}}
 
-<script src="/js/posts.js"></script>

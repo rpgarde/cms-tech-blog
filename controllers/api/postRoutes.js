@@ -24,6 +24,7 @@ router.post('/comment', async (req, res) => {
       post_id:req.body.post_id,
       content:req.body.content
     });
+    console.log(commentData)
       res.status(200).json(commentData);
   } catch (err) {
     console.log(err);
@@ -34,7 +35,7 @@ router.post('/comment', async (req, res) => {
 // edit a post 
 router.put('/edit/:id', async (req, res) => {
   try {
-    const postData = await Post.update({
+    const postData = await Post.update(req.body,{
       where: {
         id: req.params.id
       }
@@ -47,5 +48,18 @@ router.put('/edit/:id', async (req, res) => {
 });
 
 // delete a post 
+router.delete('/delete/:id',async (req,res) => {
+  try{
+    const postData = await Post.destroy({
+      where: {
+        id:req.params.id
+      }
+    })
+    res.status(200).json(postData)
+  }
+  catch(err){
+    res.status(500).json(err)
+  }
+})
 
 module.exports = router;
