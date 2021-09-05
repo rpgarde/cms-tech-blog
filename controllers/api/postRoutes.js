@@ -62,4 +62,32 @@ router.delete('/delete/:id',async (req,res) => {
   }
 })
 
+router.put('/comments/edit/:id', async (req, res) => {
+  try {
+    const commentData = await Comment.update(req.body,{
+      where: {
+        id: req.params.id
+      }
+    });
+      res.status(200).json(commentData);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
+router.delete('/comments/delete/:id',async (req,res) => {
+  try{
+    const commentData = await Comment.destroy({
+      where: {
+        id:req.params.id
+      }
+    })
+    res.status(200).json(commentData)
+  }
+  catch(err){
+    res.status(500).json(err)
+  }
+})
+
 module.exports = router;

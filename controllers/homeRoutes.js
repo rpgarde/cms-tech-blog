@@ -61,6 +61,9 @@ router.get('/dashboard', withAuth, async (req, res) => {
 // route for new posts when they press new post button on dashboard
 router.get('/newpost', withAuth, async (req, res) => {
   try {
+    console.log('CONSOLE LOGS FOR SESSIONS')
+    console.log(req.session.logged_in)
+    console.log(req.session.user_id)
     res.render('newpost', { logged_in: req.session.logged_in });
   } catch (err) {
     res.status(500).json(err);
@@ -83,8 +86,9 @@ router.get('/post/:id', async (req, res) => {
         post_id: req.params.id
       }
     })
-    const comments = commentData.map((comment) => comment.get({ plain: true }));
-
+    let comments = commentData.map((comment) => comment.get({ plain: true }));
+    // add current user id to comments array to be used in handlebars rendering logic
+    comments = comments.map((comment) => ({...comment, current_user: req.session.user_id}))
     res.render('post', {
       post,
       comments,
@@ -104,6 +108,19 @@ router.get('/post/edit/:id', async (req, res) => {
   const post = postData.get({ plain: true });
   res.render('editpost', {
     post,
+    logged_in: req.session.logged_in,
+    current_user: req.session.user_id
+  });
+});
+
+router.get('/comment/edit/:id', async (req, res) => {
+  const commentData = await Comment.findByPk(req.params.id, {
+    include: [{ model: User }],
+    attributes: { exclude: ['password'] },
+  });
+  const comment = commentData.get({ plain: true });
+  res.render('editcomment', {
+    comment,
     logged_in: req.session.logged_in,
     current_user: req.session.user_id
   });

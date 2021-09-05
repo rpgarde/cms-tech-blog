@@ -1,6 +1,11 @@
-<div class="card my-2" data-commentid = "{{id}}">
-    <p class="card-header">Comment by {{user.username}} on {{format_date createdAt}} {{format_time createdAt}}</p>
+<div class="card my-2" data-commentid="{{id}}">
+  <p class="card-header">Comment by {{user.username}} on {{format_date createdAt}} {{format_time createdAt}}</p>
   <div class="card-body">
     <p class="card-text">{{content}}</p>
+    {{!-- uses isCurrentUser helper to compare user ID of comment to current user in session --}}
+    {{#if (isCurrentUser user_id current_user)}}
+    <a href="/comment/edit/{{id}}"><button type="submit" class="btn btn-primary" id="editBtn">Edit comment</button></a>
+    <button type="submit" class="btn btn-danger" id="deleteBtn" data-commentid = "{{id}}" data-postid="{{post_id}}">Delete comment</button>
+    {{/if}}
   </div>
 </div>

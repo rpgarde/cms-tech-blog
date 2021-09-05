@@ -11,4 +11,12 @@ module.exports = {
       new Date(date).getFullYear()
     }`;
   },
+  isCurrentUser: (commentId, sessionId) => {
+    if(commentId == sessionId){
+      return true
+    }
+    else{
+      return false
+    }
+  }
 };

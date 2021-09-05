@@ -7,7 +7,6 @@ const helpers = require('./utils/helpers');
 
 const sequelize = require('./config/connection');
 
-// TODO: Add a comment describing the functionality of this expression
 // Adds ability to save session in sequelize
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
@@ -16,7 +15,6 @@ const PORT = process.env.PORT || 3001;
 
 const hbs = exphbs.create({ helpers });
 
-// TODO: Add a comment describing the functionality of this object
 // Session options object
 const sess = {
   secret: 'Super secret secret',
