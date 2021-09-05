@@ -1,7 +1,7 @@
-<div class="card" id = "post" data-postid = "{{post.id}}">
+<div class="card" id="post" data-postid="{{post.id}}">
   <h5 class="card-header">{{post.title}}</h5>
   <div class="card-body">
-    <p class="card-title">Posted by {{post.user.username}} on {{post.createdAt}}</p>
+    <p class="card-title">Posted by {{post.user.username}} on {{format_date post.createdAt}} {{format_time post.createdAt}}</p>
     <p class="card-text">{{post.content}}</p>
   </div>
 </div>
@@ -10,8 +10,8 @@
 {{#each comments as |comment|}}
 {{>comment-details}}
 {{/each}}
-  {{#if logged_in}}
-<form id = "comment-form">
+{{#if logged_in}}
+<form id="comment-form">
   <div class="mb-3">
     <label for="comment" class="form-label">Leave a comment</label>
     <textarea class="form-control" id="comment" rows="3"></textarea>
@@ -19,6 +19,6 @@
 
   <button type="submit" class="btn btn-primary">Add a comment</button>
 </form>
-  {{/if}}
+{{/if}}
 
 <script src="/js/posts.js"></script>

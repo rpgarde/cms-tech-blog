@@ -20,6 +20,7 @@ router.get('/',
         // TODO: Add a comment describing the functionality of this property
         // checks if session is logged in
         logged_in: req.session.logged_in,
+        current_user: req.session.user_id
       });
     } catch (err) {
       res.status(500).json(err);
@@ -43,6 +44,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
       // TODO: Add a comment describing the functionality of this property
       // checks if session is logged in
       logged_in: req.session.logged_in,
+      current_user: req.session.user_id
     });
   } catch (err) {
     res.status(500).json(err);
@@ -80,10 +82,24 @@ router.get('/post/:id', async (req, res) => {
       post,
       comments,
       logged_in: req.session.logged_in,
+      current_user: req.session.user_id
     });
   } catch (err) {
     res.status(500).json(err);
   }
+});
+
+router.get('/post/edit/:id', async (req, res) => {
+  const postData = await Post.findByPk(req.params.id, {
+    include: [{ model: User }],
+    attributes: { exclude: ['password'] },
+  });
+  const post = postData.get({ plain: true });
+  res.render('editpost', {
+    post,
+    logged_in: req.session.logged_in,
+    current_user: req.session.user_id
+  });
 });
 
 router.get('/login', (req, res) => {

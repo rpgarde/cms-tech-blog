@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const { User, Comment, Post } = require('../../models');
 
+// post a new post
 router.post('/', async (req, res) => {
   try {
     const postData = await Post.create({
@@ -15,6 +16,7 @@ router.post('/', async (req, res) => {
   }
 });
 
+//post a new comment under a post
 router.post('/comment', async (req, res) => {
   try {
     const commentData = await Comment.create({
@@ -28,5 +30,22 @@ router.post('/comment', async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+// edit a post 
+router.put('/edit/:id', async (req, res) => {
+  try {
+    const postData = await Post.update({
+      where: {
+        id: req.params.id
+      }
+    });
+      res.status(200).json(postData);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
+// delete a post 
 
 module.exports = router;
