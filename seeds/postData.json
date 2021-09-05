@@ -1,27 +1,27 @@
 [
   {
     "user_id": 1,
-    "title": "Test Title 1",
-    "content": "Test Content 1"
+    "title": "Apple versus Android",
+    "content": "Android has better customisation features, but Apple phones are more stable and hare supported longer."
   },
   {
     "user_id": 1,
-    "title": "Test Title 2",
-    "content": "Test Content 2"
+    "title": "PC vs Mac",
+    "content": "PCs are a lot more customisable, you can build them however which way you want"
   },
   {
     "user_id": 2,
-    "title": "Test Title 3",
-    "content": "Test Content 3"
+    "title": "The best mechanical keyboard for you?",
+    "content": "Keychron keyboards are becoming so popular nowadays."
   },
   {
     "user_id": 2,
-    "title": "Test Title 4",
-    "content": "Test Content 4"
+    "title": "Get off social media",
+    "content": "If your screen time is over 4 hours a day, you might be addicted to TikTok/Instagram/YouTube."
   },
   {
     "user_id": 3,
-    "title": "Test Title 5",
-    "content": "Test Content 5"
+    "title": "Can tablets replace computers?",
+    "content": "We think that you can fully get off a computer by using an iPad Pro."
   }
 ]

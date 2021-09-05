@@ -16,22 +16,6 @@ router.post('/', async (req, res) => {
   }
 });
 
-//post a new comment under a post
-router.post('/comment', async (req, res) => {
-  try {
-    const commentData = await Comment.create({
-      user_id:req.session.user_id,
-      post_id:req.body.post_id,
-      content:req.body.content
-    });
-    console.log(commentData)
-      res.status(200).json(commentData);
-  } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
-  }
-});
-
 // edit a post 
 router.put('/edit/:id', async (req, res) => {
   try {
@@ -62,6 +46,24 @@ router.delete('/delete/:id',async (req,res) => {
   }
 })
 
+
+//post a new comment under a post
+router.post('/comment', async (req, res) => {
+  try {
+    const commentData = await Comment.create({
+      user_id:req.session.user_id,
+      post_id:req.body.post_id,
+      content:req.body.content
+    });
+    console.log(commentData)
+      res.status(200).json(commentData);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
+// edit a comment inside a post
 router.put('/comments/edit/:id', async (req, res) => {
   try {
     const commentData = await Comment.update(req.body,{
@@ -76,6 +78,7 @@ router.put('/comments/edit/:id', async (req, res) => {
   }
 });
 
+// delete a comment inside a post
 router.delete('/comments/delete/:id',async (req,res) => {
   try{
     const commentData = await Comment.destroy({

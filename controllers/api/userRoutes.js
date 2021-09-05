@@ -22,8 +22,6 @@ router.post('/', async (req, res) => {
 
 router.post('/login', async (req, res) => {
   try {
-    // TODO: Add a comment describing the functionality of this expression
-    // Finds a user with a matching email
     const userData = await User.findOne({ where: { username: req.body.username } });
 
     if (!userData) {
@@ -33,8 +31,6 @@ router.post('/login', async (req, res) => {
       return;
     }
 
-    // TODO: Add a comment describing the functionality of this expression
-    // Checks if the password matches the password in the DB 
     const validPassword = await userData.checkPassword(req.body.password);
 
     if (!validPassword) {
@@ -44,12 +40,9 @@ router.post('/login', async (req, res) => {
       return;
     }
 
-    // TODO: Add a comment describing the functionality of this method
-    // Saves session with the user ID and changes the logged_in to true 
     req.session.save(() => {
       req.session.user_id = userData.id;
       req.session.logged_in = true;
-      
       res.json({ user: userData, message: 'You are now logged in!' });
     });
 
@@ -60,8 +53,6 @@ router.post('/login', async (req, res) => {
 
 router.post('/logout', (req, res) => {
   if (req.session.logged_in) {
-    // TODO: Add a comment describing the functionality of this method
-    // Destroys the session
     req.session.destroy(() => {
       res.status(204).end();
     });
